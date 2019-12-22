@@ -38,7 +38,7 @@ const travel = require('./routes/travel');
 app.use(cors());
 
 //set static folder
-app.use(express.static(path.join(__dirname, '/angular')));
+app.use(express.static(path.join(__dirname, '/angular-part')));
 
 //body parser middleware
 app.use(bodyParser.json());
@@ -50,7 +50,7 @@ require('./config/passport')(passport);
 
 app.use('/traveller',travel);
 app.use((req,res,next)=>{
-    res.sendFile(path.join(__dirname,"angular","index.html"));
+    res.sendFile(path.join(__dirname,"angular-part","index.html"));
 });
 
 //Index Route
@@ -59,7 +59,7 @@ app.get('/',(req,res)=>{
 });
 
 app.get('*',(req,res)=>{
-    res.sendFile(path.join(__dirname, '/angular/index.html'));
+    res.sendFile(path.join(__dirname, '/angular-part/index.html'));
 });
 
 //start server
